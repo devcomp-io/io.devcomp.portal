@@ -1,0 +1,23 @@
+
+<tbody>
+	<tr>
+		<th>Team</th>
+		<th>Project</th>
+		<th>Title</th>
+		<th>Labels</th>
+		<th class="text-center">Assigned</th>
+		<th class="text-center">Updated</th>
+		<th class="text-center">Created</th>
+	</tr>
+	{{~it.issues :issue:index}}
+	<tr issue-index="{{=issue.$safe.index}}">
+	    <td>{{=issue.$display.organization}}</td>
+	    <td>{{=issue.$display.repository}}</td>
+	    <td>{{=issue.$display.title}}</td>
+	    <td></td>
+	    <td class="text-center">{{=issue.$display.assignedTo}}</td>
+	    <td class="text-right">{{=issue.$display.updatedOn}}</td>
+	    <td class="text-right">{{=issue.$display.createdOn}}</td>
+	</tr>
+	{{~}}
+</tbody>

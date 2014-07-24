@@ -1,0 +1,31 @@
+
+<section class="content-header">
+    <h1>Issues</h1>
+</section>
+
+<section class="content">
+
+    <div x-widget="io.pinf.ui/2-pio/service/credentials">
+        {{=it.credentialsConfig}}
+    </div>
+
+	<button id="button-sync-now" type="button" class="btn btn-primary">Sync Now</button>
+
+</section>
+
+<section class="content my-issues-content">
+
+	<table class="table table-bordered table-condensed" x-widget="io.devcomp.portal/2-views/issues/list">
+	</table>
+
+</section>
+
+
+<style>
+
+SECTION.my-issues-content TR:hover {
+	background-color: #bcbcbc;
+	cursor: pointer;
+}
+	
+</style>

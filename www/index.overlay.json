@@ -1,7 +1,16 @@
 {
-	"view": {
-		"widget": {
-			"body": "io.devcomp.portal/1-layout/body"
+	"logo": {
+		"label": "DeveloperCompanion"
+	},
+	"views": {
+		"#/issues": {			
+			"title": "Issues",
+			"widget": "io.devcomp.portal/2-views/issues",
+			"aspects": {
+				"sidebar-menu-container": {
+					"label": "Issues"
+				}
+			}
 		}
 	}
 }

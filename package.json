@@ -31,7 +31,8 @@
   "config.plugin": {
     "io.pinf.server.firewidgets": {
       "widgets": {
-        "1-layout": "./widgets/1-layout/*"
+        "1-layout": "./widgets/1-layout/*",
+        "2-views": "./widgets/2-views/*"
       }
     }
   }
