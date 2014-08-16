@@ -25,9 +25,6 @@ exports.app = function(req, res, next) {
 				});
 			    return res.end(body);
     		}
-			if (!cursor.hasNext()) {
-				return respond("[]");
-			}
 			return cursor.toArray(function(err, issues) {
 			    if (err) return next(err);
 				return respond(JSON.stringify(issues, null, 4));
