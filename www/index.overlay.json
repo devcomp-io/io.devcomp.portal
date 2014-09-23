@@ -3,12 +3,30 @@
 		"label": "DeveloperCompanion"
 	},
 	"views": {
-		"#/issues": {			
+		"#/issues": {
+			"clearance": [
+				"OWNER",
+				"ADMIN",
+				"CORE-CONTRIBUTOR"
+			],
 			"title": "Issues",
 			"widget": "io.devcomp.portal/2-views/issues",
 			"aspects": {
 				"sidebar-menu-container": {
 					"label": "Issues"
+				}
+			}
+		},
+		"#/terminals": {
+			"clearance": [
+				"OWNER",
+				"ADMIN"
+			],
+			"title": "Terminals",
+			"widget": "io.devcomp.portal/2-views/terminals",
+			"aspects": {
+				"sidebar-menu-container": {
+					"label": "Terminals"
 				}
 			}
 		}
