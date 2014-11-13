@@ -29,6 +29,32 @@
 					"label": "Terminals"
 				}
 			}
+		},
+		"#/stats": {
+			"clearance": [
+				"OWNER",
+				"ADMIN"
+			],
+			"title": "Statistics",
+			"widget": "io.devcomp.portal/2-views/stats",
+			"aspects": {
+				"sidebar-menu-container": {
+					"label": "Statistics"
+				}
+			}
+		},
+		"#/tests": {
+			"clearance": [
+				"OWNER",
+				"ADMIN"
+			],
+			"title": "Tests",
+			"widget": "io.devcomp.portal/2-views/tests",
+			"aspects": {
+				"sidebar-menu-container": {
+					"label": "Tests"
+				}
+			}
 		}
 	}
 }
