@@ -18,7 +18,7 @@ define(function() {
 					handler: function(_htm, _list) {
 
 						_list.on("data", function(services) {
-							self.setHTM(_htm, {
+							return self.setHTM(_htm, {
 								services: services
 							});
 						});

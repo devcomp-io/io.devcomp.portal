@@ -5,7 +5,44 @@
 
 <section class="content">
 
-    <div x-widget="io.devcomp.tool.stats/service/summary">
+	<div class="row">
+
+		<div class="col-md-6">
+			<div class="box box-primary">
+		        <div class="box-header">
+		            <h3 class="box-title">Service Internals</h3>
+		        </div>
+		        <div class="box-body" id="service-summaries">
+
+					{{ for(var serviceId in it.services) { }}
+			        	<div class="service-summary">
+			        		<div class="title">{{=serviceId}}</div>
+						    <div class="chart" x-widget="io.devcomp.tool.stats/service/summary">
+						    	{{=it.services[serviceId].config}}
+						    </div>
+			        	</div>
+			        {{ } }}
+
+		        </div>
+	        </div>
+	    </div>
+
     </div>
 
 </section>
+
+<style>
+DIV.service-summary {
+	margin-bottom: 10px;
+}
+DIV.service-summary > DIV.title {
+	font-size: 12pt;
+	font-family: Arial;
+	font-weight: bold;
+}
+DIV.service-summary > DIV.chart {
+	width: 100%;
+}
+</style>
+
+

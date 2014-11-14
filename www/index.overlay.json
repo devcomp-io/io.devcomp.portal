@@ -33,7 +33,8 @@
 		"#/stats": {
 			"clearance": [
 				"OWNER",
-				"ADMIN"
+				"ADMIN",
+				"CORE-CONTRIBUTOR"
 			],
 			"title": "Statistics",
 			"widget": "io.devcomp.portal/2-views/stats",
@@ -46,7 +47,8 @@
 		"#/tests": {
 			"clearance": [
 				"OWNER",
-				"ADMIN"
+				"ADMIN",
+				"CORE-CONTRIBUTOR"
 			],
 			"title": "Tests",
 			"widget": "io.devcomp.portal/2-views/tests",
