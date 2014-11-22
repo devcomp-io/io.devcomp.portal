@@ -21,6 +21,14 @@
 </section>
 
 
+<section class="content">
+	<ul>
+	{{ for(var apiId in it.apis) { }}
+		<li><a target="_blank" href="{{=it.apis[apiId].url}}">{{=it.apis[apiId].$label}}</a></li>
+	{{ } }}
+	</ul>
+</section>
+
 <style>
 
 SECTION.my-issues-content TR:hover {
