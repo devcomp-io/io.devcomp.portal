@@ -87,12 +87,7 @@ exports.app = function(req, res, next) {
 				    if (err) return next(err);
 					return respond(JSON.stringify(issues, null, 4));
 				});
-			    return res.end(body);
-    		}
-			return cursor.toArray(function(err, issues) {
-			    if (err) return next(err);
-				return respond(JSON.stringify(issues, null, 4));
 			});
-		});
-    });
+	    });
+	}
 }
