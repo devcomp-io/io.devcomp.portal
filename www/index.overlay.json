@@ -3,6 +3,19 @@
 		"label": "DeveloperCompanion"
 	},
 	"views": {
+		"#/processes": {
+			"clearance": [
+				"OWNER",
+				"ADMIN"
+			],
+			"title": "Processes",
+			"widget": "io.devcomp.portal/2-views/processes",
+			"aspects": {
+				"sidebar-menu-container": {
+					"label": "Processes"
+				}
+			}
+		},
 		"#/issues": {
 			"clearance": [
 				"OWNER",

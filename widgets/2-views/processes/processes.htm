@@ -1,0 +1,60 @@
+
+<section class="content-header">
+	<h1>Processes</h1>
+</section>
+
+<section class="content">
+
+	<div class="row">
+
+		<div class="col-md-12">
+			<div class="box box-primary">
+		        <div class="box-header">
+		            <h3 class="box-title">Services</h3>
+		        </div>
+		        <div class="box-body" id="service-summaries">
+
+					<table class="table table-bordered table-condensed">
+					    <tbody>
+							<tr>
+								<th>Group</th>
+								<th>Service</th>
+								<th>Uptime</th>
+								<th>Memory</th>
+								<th>CPU</th>
+								<th>Actions</th>
+							</tr>
+							{{ for(var serviceId in it.services) { }}
+								<tr serviceId="{{=serviceId}}">
+								    <td>{{=it.services[serviceId].group}}</td>
+								    <td>{{=serviceId}}</td>
+								    <td></td>
+								    <td></td>
+								    <td></td>
+								    <td class="actions"></td>
+								</tr>
+							{{ } }}
+					    </tbody>
+					</table>
+
+					<div id="processes-action-buttons" class="hidden">
+				    	<button type="button" class="btn btn-primary btn-xs button-start">Start</button>
+				    	<button type="button" class="btn btn-primary btn-xs button-stop">Stop</button>
+				    	<button type="button" class="btn btn-primary btn-xs button-restart">Restart</button>
+				    	<button type="button" class="btn btn-primary btn-xs button-kill">Kill</button>
+				    	<button type="button" class="btn btn-primary btn-xs button-terminate">Terminate</button>
+					</div>
+
+		        </div>
+	        </div>
+	    </div>
+
+    </div>
+
+</section>
+
+<style>
+#processes-action-buttons {
+	white-space: nowrap;
+}
+</style>
