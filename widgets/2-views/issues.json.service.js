@@ -1,6 +1,6 @@
 
 const PATH = require("path");
-
+const CRYPTO = require("crypto");
 
 const DB_NAME = "devcomp";
 
@@ -40,7 +40,8 @@ exports.app = function(req, res, next) {
 						res.writeHead(200, {
 							"Content-Type": "application/json",
 //							"Content-Length": body.length,
-			                "Cache-Control": "max-age=60"  // seconds
+			                "Cache-Control": "max-age=60",  // seconds
+			                "Etag": CRYPTO.createHash("md5").update(body).digest("hex")
 						});
 					    return res.end(body);
 		    		}
@@ -79,7 +80,8 @@ exports.app = function(req, res, next) {
 					res.writeHead(200, {
 						"Content-Type": "application/json",
 //						"Content-Length": body.length,
-		                "Cache-Control": "max-age=60"  // seconds
+		                "Cache-Control": "max-age=60",  // seconds
+		                "Etag": CRYPTO.createHash("md5").update(body).digest("hex")
 					});
 				    return res.end(body);
 	    		}

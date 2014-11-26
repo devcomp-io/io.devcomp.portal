@@ -1,4 +1,17 @@
 
+<style>
+	DIV.processes-action-buttons {
+		white-space: nowrap;
+	}
+	#modal-processes-action DIV.modal-body DIV.command {
+		width: 100%;
+		padding: 10px;
+		word-break: break-all;
+		display: block;
+	}
+</style>
+
+
 <section class="content-header">
 	<h1>Processes</h1>
 </section>
@@ -19,31 +32,33 @@
 							<tr>
 								<th>Group</th>
 								<th>Service</th>
-								<th>Uptime</th>
+								<th>Level</th>
+								<th>PID</th>
+								<th>Start</th>
+								<th>Time</th>
 								<th>Memory</th>
 								<th>CPU</th>
-								<th>Actions</th>
+								<th>RSS</th>
+								<th>VSZ</th>
+								<th>STAT</th>
 							</tr>
 							{{ for(var serviceId in it.services) { }}
 								<tr serviceId="{{=serviceId}}">
-								    <td>{{=it.services[serviceId].group}}</td>
-								    <td>{{=serviceId}}</td>
-								    <td></td>
-								    <td></td>
-								    <td></td>
-								    <td class="actions"></td>
+								    <td class="service-root-only">{{=it.services[serviceId].group}}</td>
+								    <td class="service-root-only">{{=serviceId}}</td>
+								    <td>+</td>
+								    <td field="PID"></td>
+								    <td field="START"></td>
+								    <td field="TIME"></td>
+								    <td field="%MEM"></td>
+								    <td field="%CPU"></td>
+								    <td field="RSS"></td>
+								    <td field="VSZ"></td>
+								    <td field="STAT"></td>
 								</tr>
 							{{ } }}
 					    </tbody>
 					</table>
-
-					<div id="processes-action-buttons" class="hidden">
-				    	<button type="button" class="btn btn-primary btn-xs button-start">Start</button>
-				    	<button type="button" class="btn btn-primary btn-xs button-stop">Stop</button>
-				    	<button type="button" class="btn btn-primary btn-xs button-restart">Restart</button>
-				    	<button type="button" class="btn btn-primary btn-xs button-kill">Kill</button>
-				    	<button type="button" class="btn btn-primary btn-xs button-terminate">Terminate</button>
-					</div>
 
 		        </div>
 	        </div>
@@ -53,8 +68,28 @@
 
 </section>
 
-<style>
-#processes-action-buttons {
-	white-space: nowrap;
-}
-</style>
+
+<div class="modal fade" id="modal-processes-action" tabindex="-1" role="dialog" aria-labelledby="modal-processes-action-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="modal-processes-action-label">Manage Process</h4>
+      </div>
+      <div class="modal-body">
+
+		<div class="command"></div>
+
+		<div class="processes-action-buttons">
+
+	    	<button type="button" class="btn btn-primary btn-sm button-start">Start</button>
+	    	<button type="button" class="btn btn-primary btn-sm button-stop">Stop</button>
+	    	<button type="button" class="btn btn-primary btn-sm button-restart">Restart</button>
+	    	<button type="button" class="btn btn-primary btn-sm button-kill">Kill</button>
+	    	<button type="button" class="btn btn-primary btn-sm button-terminate">Terminate</button>
+
+	    </div>
+      </div>
+    </div>
+  </div>
+</div>

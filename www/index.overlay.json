@@ -16,6 +16,20 @@
 				}
 			}
 		},
+		"#/ports": {
+			"clearance": [
+				"OWNER",
+				"ADMIN",
+				"CORE-CONTRIBUTOR"
+			],
+			"title": "Ports",
+			"widget": "io.devcomp.portal/2-views/ports",
+			"aspects": {
+				"sidebar-menu-container": {
+					"label": "Ports"
+				}
+			}
+		},
 		"#/issues": {
 			"clearance": [
 				"OWNER",
