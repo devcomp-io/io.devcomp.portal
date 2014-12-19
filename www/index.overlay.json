@@ -6,7 +6,8 @@
 		"#/processes": {
 			"clearance": [
 				"OWNER",
-				"ADMIN"
+				"ADMIN",
+				"CORE-CONTRIBUTOR"
 			],
 			"title": "Processes",
 			"widget": "io.devcomp.portal/2-views/processes",
