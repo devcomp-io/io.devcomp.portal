@@ -40,18 +40,25 @@ define(function() {
 									serviceTag.attr("pid_last", serviceTag.attr("pid") || "");
 									serviceTag.attr("pid", "");
 
-									if (!data.services[serviceId].info) return;
+									var pid = null;
 
-									var pid = data.services[serviceId].info.PID;
-									if (!pid) return;
+									if (data.services[serviceId].info) {
+										pid = data.services[serviceId].info.PID;
+									}
 
-									serviceTag.attr("pid", pid);
-									$('TD', serviceTag).each(function() {
-										var node = $(this);
-										var field = node.attr("field");
-										if (!field) return;
-										node.html(""+data.services[serviceId].info[field]);
-									});
+									if (!pid && data.services[serviceId].isApp !== true) return;
+
+									if (pid) {
+										serviceTag.attr("pid", pid);
+									}
+									if (data.services[serviceId].info) {
+										$('TD', serviceTag).each(function() {
+											var node = $(this);
+											var field = node.attr("field");
+											if (!field) return;
+											node.html(""+data.services[serviceId].info[field]);
+										});
+									}
 
 									renderedProcessIds[pid] = true;
 									updatedProcessIds[pid] = true;
@@ -200,6 +207,8 @@ define(function() {
 										actionsDialog.attr("pid", nodeInfo.pid || "");
 										actionsDialog.attr("serviceId", nodeInfo.childServiceId || nodeInfo.serviceId);
 
+										if (!nodeInfo.pid && data.services[nodeInfo.serviceId].isApp !== true) return;
+
 										if (!nodeInfo.pid) {
 											$(".processes-action-buttons BUTTON", actionsDialog).prop("disabled", true);
 											$(".processes-action-buttons BUTTON.button-start", actionsDialog).prop("disabled", false);
@@ -212,7 +221,16 @@ define(function() {
 											}
 										}
 
-										$('DIV.modal-body DIV.command', actionsDialog).html(data.processes[nodeInfo.pid].info.COMMAND);
+										if (
+											nodeInfo.pid &&
+											data.processes[nodeInfo.pid]
+										) {
+											if (data.processes[nodeInfo.pid].info) {
+												$('DIV.modal-body DIV.command', actionsDialog).html(data.processes[nodeInfo.pid].info.COMMAND);
+											} else {
+												$('DIV.modal-body DIV.command', actionsDialog).html("?");
+											}
+										}
 
 										actionsDialog.modal('show');
 									});
