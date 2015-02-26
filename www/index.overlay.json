@@ -85,6 +85,20 @@
 					"label": "Tests"
 				}
 			}
+		},
+		"#/datastores": {
+			"clearance": [
+				"OWNER",
+				"ADMIN",
+				"CORE-CONTRIBUTOR"
+			],
+			"title": "Datastores",
+			"widget": "io.devcomp.portal/2-views/datastores",
+			"aspects": {
+				"sidebar-menu-container": {
+					"label": "Datastores"
+				}
+			}
 		}
 	}
 }
